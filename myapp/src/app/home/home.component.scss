@@ -1,0 +1,32 @@
+.header {
+    background: #002280;
+    padding: 1.5em;
+    color: #fff;
+    font-size: 1em;
+    font-family: cursive;
+    justify-content: center;
+}
+
+.list {
+    border: 1px solid;
+    margin-top: 5em;
+    border-radius: 10px;
+    padding: 5px;
+    background: #f5f9fa;
+    h5{
+        padding: 1em;
+        font-style: oblique;
+    }
+}
+
+ul {
+    list-style: auto;
+    li {
+        cursor: pointer;
+        padding: 1em;
+        font-family: monospace;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

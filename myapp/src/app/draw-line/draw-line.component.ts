@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import * as THREE from 'three';
 declare var window: any;
 @Component({
@@ -6,12 +6,13 @@ declare var window: any;
   templateUrl: './draw-line.component.html',
   styleUrls: ['./draw-line.component.scss']
 })
-export class DrawLineComponent implements OnInit {
+export class DrawLineComponent implements OnInit, OnDestroy {
 
   scene = new THREE.Scene();
   renderer = new THREE.WebGLRenderer();
   camera = new THREE.PerspectiveCamera(150, window.innerWidth / window.innerHeight, 0.1, 200);
-
+  line: any;
+  dashedLine: any;
 
   constructor() { }
 
@@ -26,26 +27,35 @@ export class DrawLineComponent implements OnInit {
     points.push(new THREE.Vector3(0, 10, 0));
     points.push(new THREE.Vector3(10, 0, 0));
     const geometry = new THREE.BufferGeometry().setFromPoints(points);
-    const line = new THREE.Line(geometry, material);
+    this.line = new THREE.Line(geometry, material);
 
-    const dashedmaterial = new THREE.LineDashedMaterial( {
+    const dashedmaterial = new THREE.LineDashedMaterial({
       color: 0xffffff,
-      linewidth: 1,
+      linewidth: 1.4,
       scale: 1,
       dashSize: 3,
-      gapSize: 1,
-    } );
-    const dashedPoints =[];
-    dashedPoints.push(new THREE.Vector3(-10 , 0 ,0));
-    dashedPoints.push(new THREE.Vector3(0,16,0));
+      gapSize: 2,
+    });
+    const dashedPoints = [];
+    dashedPoints.push(new THREE.Vector3(-10, 0, 0));
+    dashedPoints.push(new THREE.Vector3(0, 16, 0));
     dashedPoints.push(new THREE.Vector3(10, 0, 0));
     const dashedGeometry = new THREE.BufferGeometry().setFromPoints(dashedPoints);
-    const dashedLine = new THREE.Line(dashedGeometry, dashedmaterial);
+    this.dashedLine = new THREE.Line(dashedGeometry, dashedmaterial);
 
-    this.scene.add(line);
-    this.scene.add(dashedLine);
+    this.scene.add(this.line);
+    this.scene.add(this.dashedLine);
     this.camera.position.z = 5;
     this.renderer.render(this.scene, this.camera);
   }
-
+  ngOnDestroy() {
+    let canvasEle : any = document.getElementsByTagName('canvas')
+    console.log(canvasEle)
+    document.activeElement.removeChild(canvasEle[0]);
+    // canvasEle[0].style.display = 'none';
+    this.scene.remove(this.line);
+    this.scene.remove(this.dashedLine);
+    this.renderer.render(this.scene, this.camera);
+  
+  }
 }
