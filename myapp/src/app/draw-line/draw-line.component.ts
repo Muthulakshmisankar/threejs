@@ -10,7 +10,7 @@ export class DrawLineComponent implements OnInit {
 
   scene = new THREE.Scene();
   renderer = new THREE.WebGLRenderer();
-  camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 500);
+  camera = new THREE.PerspectiveCamera(150, window.innerWidth / window.innerHeight, 0.1, 200);
 
 
   constructor() { }
