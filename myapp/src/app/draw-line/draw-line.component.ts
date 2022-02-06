@@ -27,7 +27,23 @@ export class DrawLineComponent implements OnInit {
     points.push(new THREE.Vector3(10, 0, 0));
     const geometry = new THREE.BufferGeometry().setFromPoints(points);
     const line = new THREE.Line(geometry, material);
+
+    const dashedmaterial = new THREE.LineDashedMaterial( {
+      color: 0xffffff,
+      linewidth: 1,
+      scale: 1,
+      dashSize: 3,
+      gapSize: 1,
+    } );
+    const dashedPoints =[];
+    dashedPoints.push(new THREE.Vector3(-10 , 0 ,0));
+    dashedPoints.push(new THREE.Vector3(0,16,0));
+    dashedPoints.push(new THREE.Vector3(10, 0, 0));
+    const dashedGeometry = new THREE.BufferGeometry().setFromPoints(dashedPoints);
+    const dashedLine = new THREE.Line(dashedGeometry, dashedmaterial);
+
     this.scene.add(line);
+    this.scene.add(dashedLine);
     this.camera.position.z = 5;
     this.renderer.render(this.scene, this.camera);
   }
