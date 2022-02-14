@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { DrawLineComponent } from './draw-line/draw-line.component';
 import { CreateTextComponent } from './create-text/create-text.component';
 import { HomeComponent } from './home/home.component';
+import { ThreedModelComponent } from './threed-model/threed-model.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DrawLineComponent,
     CreateTextComponent,
-    HomeComponent
+    HomeComponent,
+    ThreedModelComponent
   ],
   imports: [
     BrowserModule,
