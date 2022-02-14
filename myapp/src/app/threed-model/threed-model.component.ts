@@ -28,5 +28,13 @@ export class ThreedModelComponent implements OnInit {
       this.renderer.render(this.scene, this.camera);
     }), undefined, ((err) => { console.log(err) }))
   }
-
+  ngOnDestroy() {
+    let canvasEle : any = document.getElementsByTagName('canvas')
+    console.log(canvasEle)
+    document.activeElement.removeChild(canvasEle[0]);
+    // canvasEle[0].style.display = 'none';
+    this.scene.remove(this.loader);
+    this.renderer.render(this.scene, this.camera);
+  
+  }
 }
