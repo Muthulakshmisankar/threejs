@@ -12,7 +12,7 @@ export class CubeComponent implements OnInit {
   renderer = new THREE.WebGLRenderer();
   fov = 75;
   // aspect = window.innerHeight / window.innerWidth
-  aspect =1
+  aspect = 1
   near = 0.1
   far = 10000
   camera;
@@ -28,12 +28,18 @@ export class CubeComponent implements OnInit {
 
     this.camera = new THREE.PerspectiveCamera(this.fov, this.aspect, this.near, this.far);
     this.camera.position.set(0, 5, 0);
+    let color = 0xffffff;
+    let intensity = 1;
+    const light = new THREE.DirectionalLight(color, intensity);
+    light.position.set(-1, 2, 4);
+    this.scene.add(light);  
     this.camera.lookAt(0, 0, 0);
     let boxwidth = 1
     let boxheight = 1
     let boxdepth = 1
     this.geometry = new THREE.BoxGeometry(boxwidth, boxheight, boxdepth);
-    this.material = new THREE.MeshBasicMaterial({ color: 0x44aa88 })
+    // this.material = new THREE.MeshBasicMaterial({ color: 0x44aa88 })
+    this.material = new THREE.MeshPhongMaterial({ color: 0x44aa88 })
     this.cube = new THREE.Mesh(this.geometry, this.material);
     this.scene.add(this.cube);
     // this.renderer.render(this.scene, this.camera)  
