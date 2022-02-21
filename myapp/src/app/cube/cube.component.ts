@@ -56,4 +56,13 @@ export class CubeComponent implements OnInit {
 
     requestAnimationFrame(this.render.bind(this));
   }
+  ngOnDestroy() {
+    let canvasEle : any = document.getElementsByTagName('canvas')
+    console.log(canvasEle)
+    document.activeElement.removeChild(canvasEle[0]);
+    // canvasEle[0].style.display = 'none';
+    this.scene.remove(this.cube);
+    this.renderer.render(this.scene, this.camera);
+  
+  }
 }
