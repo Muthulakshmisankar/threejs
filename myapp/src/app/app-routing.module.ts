@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CreateTextComponent } from './create-text/create-text.component';
+import { CubeComponent } from './cube/cube.component';
 import { DrawLineComponent } from './draw-line/draw-line.component';
 import { HomeComponent } from './home/home.component';
 import { ThreedModelComponent } from './threed-model/threed-model.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'line', component: DrawLineComponent },
   { path: 'text', component: CreateTextComponent },
   { path: 'threeD', component: ThreedModelComponent },
-  { path: 'updateThings', component: UpdateThingsComponent }
+  { path: 'getting-started', component: UpdateThingsComponent },
+  {path: 'cube', component: CubeComponent}
 ];
 
 @NgModule({

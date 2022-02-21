@@ -8,6 +8,7 @@ import { CreateTextComponent } from './create-text/create-text.component';
 import { HomeComponent } from './home/home.component';
 import { ThreedModelComponent } from './threed-model/threed-model.component';
 import { UpdateThingsComponent } from './update-things/update-things.component';
+import { CubeComponent } from './cube/cube.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UpdateThingsComponent } from './update-things/update-things.component';
     CreateTextComponent,
     HomeComponent,
     ThreedModelComponent,
-    UpdateThingsComponent
+    UpdateThingsComponent,
+    CubeComponent
   ],
   imports: [
     BrowserModule,
