@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as THREE from 'three';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
+// import {FontLoader} from 'https://threejs.org/examples/jsm/loaders/FontLoader.js';
+import {TextGeometry} from 'three/examples/jsm/geometries/TextGeometry.js';
+
 // import * as fontTypeFace from 'three/examples/fonts'
 declare var window: any;
 
@@ -13,7 +16,7 @@ export class CreateTextComponent implements OnInit {
   FontLoader: FontLoader;
   // fontTypeFace: fontTypeFace;
   scene = new THREE.Scene();
-  renderer = new THREE.WebGLRenderer();
+  renderer = new THREE.WebGLRenderer({alpha: true , antialias: true});
   camera = new THREE.PerspectiveCamera(150, window.innerWidth / window.innerHeight, 0.1, 200);
 
   textMesh1: any;
@@ -27,9 +30,10 @@ export class CreateTextComponent implements OnInit {
     this.camera.position.set(0, 0, 100);
     this.camera.lookAt(0, 0, 0);
     var loader = new FontLoader();
+    let threeJsUrl = 'https://threejs.org/examples/fonts/helvetiker_regular.typeface.json'
     let gihuburl = 'https://github.com/mrdoob/three.js/blob/master/examples/fonts/helvetiker_bold.typeface.json'
-    loader.load(gihuburl, function (font) {
-      var textGeo = new THREE.TextGeometry("My Text", {
+    loader.load(threeJsUrl, function (font) {
+      var textGeo = new TextGeometry("My Text", {
         font: font,
         size: 200,
         height: 50,
