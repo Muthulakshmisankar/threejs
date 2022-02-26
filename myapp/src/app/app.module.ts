@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { ThreedModelComponent } from './threed-model/threed-model.component';
 import { UpdateThingsComponent } from './update-things/update-things.component';
 import { CubeComponent } from './cube/cube.component';
+import { GeometricShapesComponent } from './geometric-shapes/geometric-shapes.component';
+import { GeoShapeComponent } from './geometric-shapes/geo-shape/geo-shape.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CubeComponent } from './cube/cube.component';
     HomeComponent,
     ThreedModelComponent,
     UpdateThingsComponent,
-    CubeComponent
+    CubeComponent,
+    GeometricShapesComponent,
+    GeoShapeComponent
   ],
   imports: [
     BrowserModule,

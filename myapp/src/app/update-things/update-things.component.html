@@ -1,7 +1,10 @@
 <h1>Three.Js</h1>
 Three.js is a lightweight cross-browser JavaScript library/API used to create and display animated 3D computer graphics
 on a Web browser. Three.js scripts may be used in conjunction with the HTML5 canvas element, SVG or WebG
-
+<br>
+Three.js allow you to use your GPU(Graphics Processing Unit) to render the Graphics and 3D objects on a canvas in the
+web browser. since we are using JavaScript so we can also interact with other HTML elements. Three.js was released by
+Ricardo Cabello in April 2010.
 <h1>Features of Three.js</h1>
 Effects and Animations
 Scenes and Cameras
@@ -10,3 +13,52 @@ Geometry and Objects
 Debugging and Virtual reality
 Utilities and Materials
 Support etc
+
+<h1>Why we use Three.js?</h1>
+<ul>
+    <li>Since Three.js is open source so we can easily watch the source code and understand the functionality of the
+        code(functions).</li>
+    <li>When we use WebGL for Graphics then it doesn’t support most of the browser but Three.js supports most of the
+        browsers.
+    </li>
+    <li>It doesn’t required any third party plugin to run the code. </li>
+    <li>You just need to work on only one programming language JavaScript and off course HTML.</li>
+</ul>
+
+
+<h1>How To Include Three.js in Your Projects?</h1>
+
+There are a lot of ways to add Three.js in projects some of them are quite simple and some of them are a little bit
+complex, however they all ways said that we have to include any one of these files in our project:
+
+<ul>
+    <li>three.js</li>
+    <li> three.min.js</li>
+    <li> three.module.js</li>
+</ul>
+these all the files are available on the <a href="https://github.com/mrdoob/three.js/tree/master" target="_blank"> GitHub page of Three.js .</a>
+<br>
+<b>Approach 1:</b> (Download the complete project Three.js): The easiest way to do is just download the complete three.js project on your System and use the files from there.
+
+You can download the latest release of three.js from its GitHub page. Once you have downloaded it, open it and look inside the build folder, you’ll find the three scripts there.
+<br>
+<b>Approach 2:</b> (Install the package of Three.js using NPM or YARN): Three.js is also available as a package on NPM. This means that if you have Node.js and NPM set up on your computer, then you can open a command prompt and type:
+
+npm i three
+Then, you can import three.js from the three.module.js file into your JavaScript file by referring to the three package:
+
+import * as THREE from "three";
+And, if you prefer Yarn over NPM then also you can add the package using following command in the terminal window:
+
+yarn add three
+<br>
+<b>Approach 3:</b> (Use the CDN Link): You can link the files from a CDN (Content Delivery Network), which is a remote site dedicated to hosting files so that you can use them in a website.
+
+In fact, you can even use the Three.js.org site as a CDN. You can link the three.js file using this link: https://threejs.org/build/three.js, and include it in your HTML like this:
+
+<script src="https://threejs.org/build/three.js"></script>
+But there is a problem in using three.js.org CDN link by using this link you’ll always works on an updated version. It is good when we are in development mode but if we talked about production this isn’t good if any function or syntax change with the update your code will stop working so we suggest to use CDN from these sites:
+
+cdnjs.com
+www.jsdelivr.com
+And that`s it by using any of these approach you can use Three.js in your project.

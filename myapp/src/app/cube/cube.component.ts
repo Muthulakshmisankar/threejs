@@ -24,7 +24,8 @@ export class CubeComponent implements OnInit {
 
   ngOnInit() {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(this.renderer.domElement);
+    let singleCube: any = document.getElementById('singleCube');
+    singleCube.appendChild(this.renderer.domElement);
 
     this.camera = new THREE.PerspectiveCamera(this.fov, this.aspect, this.near, this.far);
     this.camera.position.set(0, 5, 0);
@@ -32,7 +33,7 @@ export class CubeComponent implements OnInit {
     let intensity = 1;
     const light = new THREE.DirectionalLight(color, intensity);
     light.position.set(-1, 2, 4);
-    this.scene.add(light);  
+    this.scene.add(light);
     this.camera.lookAt(0, 0, 0);
     let boxwidth = 1
     let boxheight = 1
@@ -57,12 +58,14 @@ export class CubeComponent implements OnInit {
     requestAnimationFrame(this.render.bind(this));
   }
   ngOnDestroy() {
-    let canvasEle : any = document.getElementsByTagName('canvas')
+    let canvasEle: any = document.getElementsByTagName('canvas')
     console.log(canvasEle)
-    document.activeElement.removeChild(canvasEle[0]);
+    if (canvasEle.length) {
+      document.activeElement.removeChild(canvasEle[0]);
+    }
     // canvasEle[0].style.display = 'none';
     this.scene.remove(this.cube);
     this.renderer.render(this.scene, this.camera);
-  
+
   }
 }
