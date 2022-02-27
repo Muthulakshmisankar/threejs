@@ -29,10 +29,10 @@ export class MaterialsComponent implements OnInit {
     // this.threeService.setCamera(75, 50, 150, 10000, pos, cameraLookAtPos);
     let lightPosition = {
       x: 0,
-      y: -2,
-      z: -5
+      y: 20,
+      z: 0
     }
-    this.threeService.addLight(0X05fb05, 1, lightPosition);
+    this.threeService.addLight(0Xffffff, 5, lightPosition);
     this.threeService.createBoxGeometry(5, 5, 2, 'PhongBox', 'MeshPhongMaterial');
     this.setPositionForMesh('PhongBox', -8, 2, 35)
 
@@ -44,6 +44,16 @@ export class MaterialsComponent implements OnInit {
 
     this.threeService.createBoxGeometry(5, 5, 2, 'ToonBox', 'MeshToonMaterial');
     this.setPositionForMesh('ToonBox', -8, -10, 45)
+
+    this.threeService.createBoxGeometry(5, 5, 2, 'standardBox', 'MeshStandardMaterial');
+    this.setPositionForMesh('standardBox', -8, -14, 65)
+
+    this.threeService.createBoxGeometry(5, 5, 2, 'physicalBox', 'MeshPhysicalMaterial');
+    this.setPositionForMesh('physicalBox', -8, -16, 85)
+
+    this.threeService.createBoxGeometry(5, 5, 2, 'shadowBox', 'ShadowMaterial');
+    this.setPositionForMesh('shadowBox', -8, -5, 60)
+
     this.threeService.startRender();
 
   }

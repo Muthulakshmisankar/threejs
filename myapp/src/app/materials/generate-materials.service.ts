@@ -17,10 +17,10 @@ export class GenerateMaterial {
         // const far = 2;
         // const color = 'lightblue';
         this.scene.fog = new THREE.Fog();
-        this.scene.background = new THREE.Color(color);
+        // this.scene.background = new THREE.Color(color);
     }
     addRenderer() {
-        this.renderer = new THREE.WebGLRenderer();
+        this.renderer = new THREE.WebGLRenderer({antialias: true});
         //{ alpha: true, antialias: true }
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(this.renderer.domElement);
@@ -35,6 +35,9 @@ export class GenerateMaterial {
         const light = new THREE.AmbientLight(color, intensity);
         light.position.set(lightPos.x, lightPos.y, lightPos.z);
         this.scene.add(light);
+        const pointLight = new THREE.PointLight(0X812112, intensity);
+        pointLight.position.set(lightPos.x, lightPos.y, lightPos.z);
+        this.scene.add(pointLight)
     }
 
     createCylinderGeometry(radiusTop, radiusBottom, height, radialSegments, meshName) {
@@ -56,40 +59,40 @@ export class GenerateMaterial {
                 flatShading: true,
                 shininess: 150,
                 color: 'red',
-                emissive: 'purple'
+                // emissive: 'purple'
             },
             'MeshLambertMaterial': {
                 color: 'red',
-                emissive: 'purple'
+                // emissive: 'purple'
             },
             'MeshBasicMaterial': {
                 color: 'red',
-                emissive: '0x049ef4',
+                // emissive: '0x049ef4',
                 depthWrite: false,
                 depthTest: false,
                 opacity: 0.65,
                 side: THREE.DoubleSide,
             },
             'MeshToonMaterial': {
-                color: '0x049ef4',
-                emissive: '0x049ef4',
+                color: 'green',
+                emissive: 'orange',
                 // alphaMap: 'fibers',
                 // gradientMap: 'threeTone'
             },
             'MeshStandardMaterial': {
-                color: '0x049ef4',
-                emissive: '0x049ef4',
+                color: 'green',
+                emissive: 'blue',
                 roughness: 0.5,
                 metalness: 1
             },
             'MeshPhysicalMaterial': {
-                color: '0x049ef4',
-                emissive: '0x049ef4',
+                color: 'orange',
+                emissive: 'red',
                 clearcoat: 0.5,
                 clearCoatRoughness: 0.01
             },
             'ShadowMaterial': {
-                color: '0x049ef4',
+                color: 'skyblue',
                 transparent: true
             }
         }

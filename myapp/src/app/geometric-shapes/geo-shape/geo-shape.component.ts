@@ -27,8 +27,8 @@ export class GeoShapeComponent implements OnInit {
     // this.threeService.setCamera(75, 50, 150, 10000, pos, cameraLookAtPos);
     let lightPosition = {
       x: 0,
-      y: -2,
-      z: -5
+      y: 15,
+      z: 15
     }
     this.threeService.addLight(0X05fb05, 1, lightPosition);
 

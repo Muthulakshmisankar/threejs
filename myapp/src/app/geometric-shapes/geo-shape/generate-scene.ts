@@ -28,6 +28,9 @@ export class GenerateScene {
         const light = new THREE.AmbientLight(color, intensity);
         light.position.set(lightPos.x, lightPos.y, lightPos.z);
         this.scene.add(light);
+        const pointLight = new THREE.PointLight(color, intensity);
+        pointLight.position.set(lightPos.x, lightPos.y, lightPos.z);
+        this.scene.add(pointLight)
     }
 
     createCylinderGeometry(radiusTop, radiusBottom, height, radialSegments, meshName) {
