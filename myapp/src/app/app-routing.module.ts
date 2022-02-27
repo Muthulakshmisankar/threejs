@@ -6,6 +6,7 @@ import { DrawLineComponent } from './draw-line/draw-line.component';
 import { GeoShapeComponent } from './geometric-shapes/geo-shape/geo-shape.component';
 import { GeometricShapesComponent } from './geometric-shapes/geometric-shapes.component';
 import { HomeComponent } from './home/home.component';
+import { MaterialsComponent } from './materials/materials.component';
 import { ThreedModelComponent } from './threed-model/threed-model.component';
 import { UpdateThingsComponent } from './update-things/update-things.component';
 
@@ -17,9 +18,10 @@ const routes: Routes = [
   { path: 'text', component: CreateTextComponent },
   { path: 'threeD', component: ThreedModelComponent },
   { path: 'getting-started', component: UpdateThingsComponent },
-  {path: 'cube', component: CubeComponent},
-  {path: 'shapes' , component: GeometricShapesComponent},
-  {path:'geo-shapes', component: GeoShapeComponent}
+  { path: 'cube', component: CubeComponent },
+  { path: 'shapes', component: GeometricShapesComponent },
+  { path: 'geo-shapes', component: GeoShapeComponent },
+  { path: 'materials', component: MaterialsComponent }
 ];
 
 @NgModule({

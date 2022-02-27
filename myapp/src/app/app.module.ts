@@ -11,6 +11,7 @@ import { UpdateThingsComponent } from './update-things/update-things.component';
 import { CubeComponent } from './cube/cube.component';
 import { GeometricShapesComponent } from './geometric-shapes/geometric-shapes.component';
 import { GeoShapeComponent } from './geometric-shapes/geo-shape/geo-shape.component';
+import { MaterialsComponent } from './materials/materials.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GeoShapeComponent } from './geometric-shapes/geo-shape/geo-shape.compon
     UpdateThingsComponent,
     CubeComponent,
     GeometricShapesComponent,
-    GeoShapeComponent
+    GeoShapeComponent,
+    MaterialsComponent
   ],
   imports: [
     BrowserModule,
