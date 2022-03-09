@@ -19,13 +19,15 @@ export class ThreedModelComponent implements OnInit {
   });
   aspect = (window.innerWidth / window.innerHeight) 
 
-  camera = new THREE.PerspectiveCamera(150, this.aspect, 0.1, 9999999999999);
+  camera = new THREE.PerspectiveCamera(150, 1, 0.1, 1000);
   //FOV-Field of View
   //view ratio
   //near
   //far
   loader = new GLTFLoader();
   url = "assets/ftm/scene.gltf"
+  officeUrl ="assets/office/scene.gltf"
+  parrotUrl ="assets/Parrot.glb"
   zoomMode: boolean = false
   press: boolean = false
   sensitivity: number = 0.02;
@@ -35,10 +37,10 @@ export class ThreedModelComponent implements OnInit {
     console.log(this.aspect)
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(this.renderer.domElement);
-    this.camera.position.set(1, 1, 6);
+    this.camera.position.set(0, 3, 1);
     this.camera.lookAt(0, 0, 0);
     this.loader.load(this.url, ((gltf) => {
-      // gltf.scene.scale.set(0, 2, 2);
+      // gltf.scene.scale.set(300, 300, 300);
       // gltf.scene.position.set(220, 10, 400)
       this.scene.add(gltf.scene);
 
